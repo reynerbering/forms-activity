@@ -1,0 +1,51 @@
+<div class="container">
+<section class="row">
+
+<div clas="col" >   
+<div class="card bg-dark" style="max-width:600px;">
+    <h1 class="card-title text-primary p-3">JOB FORM</h1>
+        <form [formGroup]="jobForm" (ngSubmit)="onSubmit();">
+            <div class="card-body text-white container row-2">
+                <label for="job">JOB NAME</label>
+                <input type="text" name="job" id="job" placeholder="Enter job name" formControlName="job">
+                <p class="text-danger" *ngIf="!job.valid && job.touched">Please Enter Job Name</p>
+                <br>
+                <label for="secNumber">SOCIAL SECURITY NUMBER</label>
+                <input type="number" name="secNumber" id="secNumber" placeholder="Enter your social security number" formControlName="secNumber">
+                <p class="text-danger" *ngIf="!secNumber.valid && secNumber.touched">Please Enter Security Number</p>
+                <br>
+                <label for="phoneNum">PHONE NUMBER</label>
+                <input type="number" name="phoneNum" id="phoneNum" placeholder="Enter your phone number" formControlName="phoneNum">
+                <p class="text-danger" *ngIf="!phoneNum.valid && phoneNum.touched">Please Enter a Valid Phone Number</p>
+                <br>
+                <label for="age">AGE</label>
+                <input type="number" name="age" id="age" placeholder="Enter  your age" formControlName="age">
+                <p class="text-danger" *ngIf="!age.valid && age.touched">Please Enter Your Age</p>
+                <br>
+                <label for="email">EMAIL</label>
+                <input type="email" name="email" id="email" placeholder="Enter a valid email" formControlName="email">
+                <p class="text-danger" *ngIf="!email.valid && email.touched">Please Enter an Email</p>
+                <br>
+                <div class="text-center">
+                    <button class="btn btn-primary py-2 my-2">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div clas="col" *ngIf="display">
+    <div class="card bg-warning text-light " style="width:500px;">
+        <h1 class="card-title text-dark p-3">JOB DETAILS</h1>
+        <h4 class="px-3">JOB : {{job.value}}  </h4> 
+        <h4 class="px-3">SECURITY NUMBER : {{secNumber.value}} </h4> 
+        <h4 class="px-3">PHONE NUMBER : {{phoneNum.value}} </h4> 
+        <h4 class="px-3">AGE : {{age.value}}  </h4>
+        <h4 class="px-3">EMAIL : {{email.value}} </h4> 
+    </div>
+</div>
+</section>
+
+
+

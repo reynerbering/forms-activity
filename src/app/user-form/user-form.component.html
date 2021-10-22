@@ -1,0 +1,53 @@
+
+
+<div class="container">
+<section class="row">
+<div class="col">
+    <div class="card bg-dark" style="max-width:500px;">
+        <h1 class="card-title text-primary p-3">USER LOG IN</h1>
+            <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+                <div class="card-body text-white container row-2">
+                    <label for="email">EMAIL</label>
+                    <input type="email" name="email" id="email" placeholder="Enter a valid email" [(ngModel)]=userDetails.email required minlength="6" #email="ngModel" [ngModelOptions]="{updateOn : 'blur'}" (ngModelChange)="onEmailChange(email)">
+                    <p class="text-danger" *ngIf="!email.valid && email.touched">Please Enter an Email</p>
+                    <br>
+                    <label for="firstName">FIRST NAME</label>
+                    <input type="text" name="firstName" id="firstName" placeholder="Enter your first name" [(ngModel)]=userDetails.firstName required minlength="3" #firstName="ngModel">
+                    <br>
+                    <p class="text-danger" *ngIf="!firstName.valid && firstName.touched">Please Enter your First Name</p>
+                    <label for="lastName">LAST NAME</label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Enter your last name" [(ngModel)]=userDetails.lastName required minlength="2" #lastName="ngModel"> 
+                    <p class="text-danger" *ngIf="!lastName.valid && lastName.touched">Please Enter your Last Name</p>
+                    <br>
+                    <label for="username">USERNAME</label>
+                    <input type="text" name="username" id="username" placeholder="Enter your username" [(ngModel)]=userDetails.username required minlength="4" #username="ngModel">
+                    <p class="text-danger" *ngIf="!username.valid && username.touched">Valid Username Required</p>
+                    <br>
+                    <label for="password">PASSWORD</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" [(ngModel)]=userDetails.password required minlength="5" #password="ngModel">
+                    <p class="text-danger" *ngIf="!password.valid && password.touched">Valid Password Required</p>
+                    <br>
+                    <div class="text-center">
+                    <button class="btn btn-primary py-2 my-2"  type="submit">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div class="col" *ngIf="display">
+    <div class="card bg-warning text-light" style="width:500px;">
+        <h1 class="card-title text-dark p-3">USER DETAILS</h1>
+            <h4 class="px-3">EMAIL : {{userDetails.email}} </h4> 
+            <h4 class="px-3">FIRST NAME : {{userDetails.firstName}} </h4> 
+            <h4 class="px-3">LAST NAME : {{userDetails.lastName}} </h4> 
+            <h4 class="px-3">USERNAME :  {{userDetails.username}} </h4>
+            <h4 class="px-3">PASSWORD : {{pass}} </h4> 
+    </div>
+</div>
+</section>
+</div>
+
+
+
